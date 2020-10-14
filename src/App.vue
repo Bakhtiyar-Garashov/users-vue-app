@@ -142,7 +142,8 @@ export default {
     },
 
     onClickListItem(value) {
-      this.items.splice(this.items.findIndex(item => item.id === value), 1)
+      this.items.splice(this.items.findIndex(item => item.id === value), 1) // a small hack: as heroku responds slowly to delete request, 
+                                                                            //first deleting the object from array updates the dom earlier and provides better UX
       axios
         .delete(`https://users-test-api.herokuapp.com/api/users/${value}`)
         .then(() => this.getAllUsers());
