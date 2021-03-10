@@ -140,10 +140,11 @@ export default {
         this.currentPage--;
       }
     },
-
+      
+     // a small hack: as heroku responds slowly to delete request, 
+     //first deleting the object from array updates the dom earlier and provides better UX
     onClickListItem(value) {
-      this.items.splice(this.items.findIndex(item => item.id === value), 1) // a small hack: as heroku responds slowly to delete request, 
-                                                                            //first deleting the object from array updates the dom earlier and provides better UX
+      this.items.splice(this.items.findIndex(item => item.id === value), 1)
       axios
         .delete(`https://users-test-api.herokuapp.com/api/users/${value}`)
         .then(() => this.getAllUsers());
