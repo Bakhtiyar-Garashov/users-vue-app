@@ -1,7 +1,7 @@
 # users-vue-app
 Frontend of users.json CRUD api
 
-### Vue application deployed on https://users-frontend.netlify.app/
+
 ## Build Setup
 
 ``` bash
